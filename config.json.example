@@ -1,0 +1,10 @@
+{
+    "targethost": "8.8.8.8",
+    "waitToCheck": "300",
+    "startAfter": "60",
+    "usbDevices":{
+        "name": "usb0",
+        "ip": "192.168.1.167",
+        "netmask": "255.255.255.0"
+    }
+}
