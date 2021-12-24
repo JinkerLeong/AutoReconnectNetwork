@@ -8,7 +8,7 @@ config = configManager.loadConfig("/etc/AutoReconnectNetwork/config.json")
 
 
 def checkNetworkPass():
-    result = subprocess.run(f"ping -c 2 {config.targethost}", shell=True, capture_output=True)
+    result = subprocess.run(f"ping -c 2 {config.targetHost}", shell=True, capture_output=True)
     return result.stdout and result.stdout.decode("utf-8").find("2 received") != -1
 
 def restartNetworking():
