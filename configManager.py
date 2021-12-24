@@ -9,8 +9,8 @@ class config(object):
             self.netmask = usbD['netmask']
 
     def __init__(self, a,b,c,d):
-        self.startAfter = a
-        self.waitToCheck = b
+        self.startAfter = int(a)
+        self.waitToCheck = int(b)
         self.targetHost = c
         self.usbDevices = []
         for device in d:
@@ -21,7 +21,7 @@ def jsonToConfig(d):
 
 def loadConfig(configFile):
     with open(configFile) as f:
-        config = json.load(f, object_hook=jsonToConfig)
+        config = jsonToConfig(json.load(f))
         return config
 
 def printConfig(config):
