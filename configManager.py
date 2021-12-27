@@ -1,6 +1,8 @@
 import json
 from sys import stdout
 
+globalConfig = None
+
 class config(object):
     class UsbDevice(object):
         def __init__(self, usbD):
@@ -21,8 +23,12 @@ def jsonToConfig(d):
 
 def loadConfig(configFile):
     with open(configFile) as f:
-        config = jsonToConfig(json.load(f))
-        return config
+        global globalConfig
+        globalConfig = jsonToConfig(json.load(f))
+        return globalConfig
+
+def getConfig():
+    return globalConfig
 
 def printConfig(config):
     print("=========================")
