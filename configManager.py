@@ -10,31 +10,33 @@ class config(object):
             self.ip = usbD['ip']
             self.netmask = usbD['netmask']
 
-    def __init__(self, a,b,c,d):
+    def __init__(self, a,b,c,d,e):
         self.startAfter = int(a)
         self.waitToCheck = int(b)
         self.targetHost = c
+        self.pingCount = d
         self.usbDevices = []
-        for device in d:
+        for device in e:
             self.usbDevices.append(config.UsbDevice(device))
 
 def jsonToConfig(d):
-    return config(d['startAfter'],d['waitToCheck'],d['targetHost'], d['usbDevices'])
+    return config(d['startAfter'],d['waitToCheck'],d['targetHost'], d['pingCount'], d['usbDevices'])
 
-def loadConfig(configFile):
+def loadConfig(configFile)->config:
     with open(configFile) as f:
         global globalConfig
         globalConfig = jsonToConfig(json.load(f))
         return globalConfig
 
-def getConfig():
+def getConfig()->config:
     return globalConfig
 
-def printConfig(config):
+def printConfig(config : config):
     print("=========================")
     print("[Config]")
     print(f"Start after seconds: {config.startAfter}")
     print(f"Wait to check seconds: {config.waitToCheck}")
     print(f"Target host: {config.targetHost}")
+    print(f"Ping count: {config.pingCount}")
     print("=========================")
     stdout.flush()
