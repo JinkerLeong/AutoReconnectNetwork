@@ -3,7 +3,7 @@ import subprocess, configManager
 config = configManager.getConfig()
 
 def checkNetworkPass():
-    result = subprocess.run(f"ping -c 1 {config.targetHost}", shell=True, capture_output=True)
+    result = subprocess.run(f"ping -c {config.pingCount} {config.targetHost}", shell=True, capture_output=True)
     return result.stdout and result.stdout.decode("utf-8").find("1 received") != -1
 
 def restartNetworking():
