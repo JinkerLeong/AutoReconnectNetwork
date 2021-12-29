@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import sys, time, configManager, network
+import sys, time, configModule.configManager as configManager, network
 from helper import print
 
 print("load config from /etc/AutoReconnectNetwork/config.json")

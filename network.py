@@ -1,4 +1,4 @@
-import subprocess, configManager
+import subprocess, configModule.configManager as configManager
 
 config = configManager.getConfig()
 
