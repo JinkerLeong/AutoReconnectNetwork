@@ -13,13 +13,12 @@ def checkArgv():
 
 if __name__ == "__main__":
     checkArgv()
-    print(f"Starting script after {config.startAfter} seconds:")
-    time.sleep(config.startAfter)
     print("====================")
     print("[Config]")
-    print(f"Target host:  {config.targetHost}")
-    print(f"Wait to check:  {config.waitToCheck}")
+    configManager.printConfig()
     print("====================")
+    print(f"Starting script after {config.startAfter} seconds:")
+    time.sleep(config.startAfter)
     print("Now runing script...")
     while True:
         print("Check networking...")
