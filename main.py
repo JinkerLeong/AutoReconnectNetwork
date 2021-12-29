@@ -3,8 +3,7 @@
 import sys, time, configModule.configManager as configManager, network
 from helper import print
 
-print("load config from /etc/AutoReconnectNetwork/config.json")
-config = configManager.loadConfig("/etc/AutoReconnectNetwork/config.json")
+config = configManager.getConfig()
 
 def checkArgv():
     for a in sys.argv:
